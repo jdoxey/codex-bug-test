@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+    - main
+
+jobs:
+  codex-test:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.CODEX_API_KEY }}
+    steps:
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Codex CLI
+        run: npm install -g @openai/codex
+      - name: Check Codex CLI version
+        run: codex --version
+      - name: Test codex
+        run: codex "Give a brief description of what this repository does"
