@@ -26,5 +26,5 @@ jobs:
           ls -la
           npm install -g @openai/codex
           codex --version
-          codex exec --full-auto --skip-git-repo-check "Put a description of this repo's purpose into PURPOSE.md"
+          codex exec --full-auto "Put a description of this repo's purpose into PURPOSE.md"
           cat PURPOSE.md
