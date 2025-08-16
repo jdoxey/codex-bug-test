@@ -20,6 +20,8 @@ jobs:
           node-version: '22'
       - name: Install Codex CLI
         run: |
+          pwd
+          ls -la
           npm install -g @openai/codex
           codex --version
           codex exec --full-auto --skip-git-repo-check "Put a description of this repo's purpose into PURPOSE.md"
