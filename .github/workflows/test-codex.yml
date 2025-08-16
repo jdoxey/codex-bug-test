@@ -24,4 +24,6 @@ jobs:
       - name: Check Codex CLI version
         run: codex --version
       - name: Test codex
-        run: codex "Give a brief description of what this repository does"
+        run: codex exec --full-auto "Put a description of this repo's purpose into PURPOSE.md"
+      - name: Validate codex output
+        run: cat PURPOSE.md
