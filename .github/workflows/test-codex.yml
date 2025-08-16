@@ -12,6 +12,7 @@ jobs:
         run: |
           if [ -z "$OPENAI_API_KEY" ]; then
             echo "❌ OPENAI_API_KEY is not set"
+            exit 1
           else
             echo "✅ OPENAI_API_KEY is set"
           fi
