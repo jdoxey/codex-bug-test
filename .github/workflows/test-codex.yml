@@ -1,12 +1,10 @@
 on:
   workflow_dispatch:
-
 jobs:
   codex-test:
     runs-on: ubuntu-latest
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      CODEX_QUIET_MODE: 1
     steps:
       - name: Make sure key is set
         run: |
@@ -21,10 +19,8 @@ jobs:
         with:
           node-version: '22'
       - name: Install Codex CLI
-        run: npm install -g @openai/codex
-      - name: Check Codex CLI version
-        run: codex --version
-      - name: Test codex
-        run: codex exec --full-auto --skip-git-repo-check "Put a description of this repo's purpose into PURPOSE.md"
-      - name: Validate codex output
-        run: cat PURPOSE.md
+        run: |
+          npm install -g @openai/codex
+          codex --version
+          codex exec --full-auto --skip-git-repo-check "Put a description of this repo's purpose into PURPOSE.md"
+          cat PURPOSE.md
