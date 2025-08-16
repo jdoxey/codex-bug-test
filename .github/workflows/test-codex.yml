@@ -6,6 +6,8 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
       - name: Make sure key is set
         run: |
           if [ -z "$OPENAI_API_KEY" ]; then
